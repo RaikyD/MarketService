@@ -1,0 +1,108 @@
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+    ports:
+      - "9092:9092"
+
+  postgres-order:
+    image: postgres:15
+    container_name: postgres-order
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: orders
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 5
+    volumes:
+      - order-data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  postgres-pay:
+    image: postgres:15
+    container_name: postgres-pay
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: payments
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      retries: 5
+    volumes:
+      - pay-data:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+
+  orders-service:
+    build:
+      context: .
+      dockerfile: OrdersService/Dockerfile
+    container_name: orders-service
+    depends_on:
+      - kafka
+      - postgres-order
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: "http://+:80"
+      ConnectionStrings__OrderServiceDB: "Host=postgres-order;Port=5432;Database=orders;Username=postgres;Password=secret"
+      Kafka__BootstrapServers: "kafka:9092"
+      Kafka__GroupId: "orders-service"
+    ports:
+      - "5002:80"
+
+  payments-service:
+    build:
+      context: .
+      dockerfile: PaymentsService/Dockerfile
+    container_name: payments-service
+    depends_on:
+      - kafka
+      - postgres-pay
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: "http://+:80"
+      ConnectionStrings__PaymentServiceDB: "Host=postgres-pay;Port=5432;Database=payments;Username=postgres;Password=secret"
+      Kafka__BootstrapServers: "kafka:9092"
+      Kafka__GroupId: "payments-service"
+    ports:
+      - "5001:80"
+
+  api-gateway:
+    build:
+      context: .
+      dockerfile: ApiGateway/Dockerfile
+    container_name: api-gateway
+    depends_on:
+      - orders-service
+      - payments-service
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: "http://+:80"
+      Services__Orders: "http://orders-service:80"
+      Services__Payments: "http://payments-service:80"
+    ports:
+      - "8080:80"
+
+volumes:
+  order-data:
+  pay-data:

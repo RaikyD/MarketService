@@ -1,0 +1,11 @@
+/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/bin/Debug/net8.0/SharedContacts.deps.json
+/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/bin/Debug/net8.0/SharedContacts.dll
+/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/bin/Debug/net8.0/SharedContacts.pdb
+/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/obj/Debug/net8.0/SharedContacts.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/obj/Debug/net8.0/SharedContacts.AssemblyInfoInputs.cache
+/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/obj/Debug/net8.0/SharedContacts.AssemblyInfo.cs
+/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/obj/Debug/net8.0/SharedContacts.csproj.CoreCompileInputs.cache
+/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/obj/Debug/net8.0/SharedContacts.dll
+/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/obj/Debug/net8.0/refint/SharedContacts.dll
+/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/obj/Debug/net8.0/SharedContacts.pdb
+/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/obj/Debug/net8.0/ref/SharedContacts.dll
