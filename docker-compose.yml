@@ -1,3 +1,4 @@
+version: '3.8'
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:7.4.0
@@ -102,6 +103,18 @@ services:
       Services__Payments: "http://payments-service:80"
     ports:
       - "8080:80"
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: frontend
+    depends_on:
+      - api-gateway
+    environment:
+      - REACT_APP_API=http://localhost:8080
+    ports:
+      - "3000:80"
 
 volumes:
   order-data:
