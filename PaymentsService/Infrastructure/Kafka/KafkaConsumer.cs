@@ -8,9 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace PaymentsService.Infrastructure.Kafka
 {
-    /// <summary>
-    /// Универсальный фоновый consumer, если потребуется вместо InboxProcessor.
-    /// </summary>
+
     public class KafkaConsumer<T> : BackgroundService where T : class
     {
         private readonly IConsumer<Ignore, string> _consumer;

@@ -1,41 +1,30 @@
-using ApiGateway;
-using ApiGateway.Clients;
-using SharedContacts.Http.Clients.Interfaces;
-using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
-// ХЗ тут пока просто бред написан, позже буду менять ещё, когда доведу работу сервисов до безотказности
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services
+    .AddReverseProxy()
+    .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
 
-builder.Services.Configure<GatewayOptions>(builder.Configuration.GetSection("Services"));
-builder.Services.AddSingleton(sp =>
-    sp.GetRequiredService<IOptions<GatewayOptions>>().Value);
-
-
-builder.Services.AddHttpClient<IPaymentsClient, PaymentsClient>((sp, client) =>
-{
-    var opts = sp.GetRequiredService<GatewayOptions>();
-    client.BaseAddress = new Uri(opts.Payments);
-});
-builder.Services.AddHttpClient<IOrdersClient, OrdersClient>((sp, client) =>
-{
-    var opts = sp.GetRequiredService<GatewayOptions>();
-    client.BaseAddress = new Uri(opts.Orders);
-});
-
-
-builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseRouting();
 
-app.UseAuthorization();
-app.MapControllers();
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json",      "API Gateway V1");
+    c.SwaggerEndpoint("/swagger/payments/v1/swagger.json", "Payments Service");
+    c.SwaggerEndpoint("/swagger/orders/v1/swagger.json",   "Orders Service");
+    
+    c.RoutePrefix = "swagger";
+});
+
+app.MapReverseProxy();
+
 app.Run();

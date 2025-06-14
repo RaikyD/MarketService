@@ -1,46 +1,3 @@
-// using Microsoft.EntityFrameworkCore;
-// using Microsoft.Extensions.DependencyInjection;
-// using Microsoft.Extensions.Hosting;
-// using PaymentsService.Infrastructure.DbData;
-//
-// namespace PaymentsService.Infrastructure.Kafka;
-//
-// public class OutboxDispatcher : BackgroundService
-// {
-//     private readonly IServiceProvider _sp;
-//     private readonly KafkaProducer   _producer;
-//
-//     public OutboxDispatcher(IServiceProvider sp, KafkaProducer producer)
-//     {
-//         _sp       = sp;      
-//         _producer = producer; 
-//     }
-//
-//     protected override async Task ExecuteAsync(CancellationToken ct)
-//     {
-//         while (!ct.IsCancellationRequested)
-//         {
-//             using var scope = _sp.CreateScope();
-//             var db = scope.ServiceProvider.GetRequiredService<PaymentDbContext>();
-//
-//             var pending = await db.Outbox
-//                 .Where(x => !x.Dispatched)
-//                 .ToListAsync(ct);
-//
-//             foreach (var msg in pending)
-//             {
-//                 await _producer.ProduceAsync(msg.Topic, msg.Payload);
-//                 msg.Dispatched = true;
-//             }
-//
-//             await db.SaveChangesAsync(ct);
-//             await Task.Delay(1000, ct);
-//         }
-//     }
-// }
-//
-// OutboxDispatcher.cs
-// PaymentsService.Infrastructure.Kafka/OutboxDispatcher.cs
 using System;
 using System.Linq;
 using System.Threading;
@@ -99,7 +56,7 @@ namespace PaymentsService.Infrastructure.Kafka
 
                     await db.SaveChangesAsync(ct);
                 }
-                catch (OperationCanceledException) { /* graceful shutdown */ }
+                catch (OperationCanceledException) { }
                 catch (Exception ex)
                 {
                     _logger.LogError(ex, "Unexpected error in OutboxDispatcher loop");

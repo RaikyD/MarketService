@@ -11,17 +11,15 @@ public interface IOrderRepository
     Task AddOrderAsync(Order order);
     Task UpdateOrderAsync(Order order);
 
-    // Транзакционный API
+    
     Task<IDbContextTransaction> BeginTransactionAsync();
     Task SaveChangesAsync();
 
-    // Outbox
+    
     Task AddOutboxMessageAsync(OutboxMessage msg);
 
-    // **Inbox**
-    /// <summary>Записать в Inbox факт обработки события</summary>
+    
     Task AddInboxMessageAsync(InboxMessage msg);
-
-    /// <summary>Проверить, было ли событие с таким EventId уже обработано</summary>
+    
     Task<bool> HasProcessedEventAsync(Guid eventId);
 }

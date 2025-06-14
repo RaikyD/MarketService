@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using PaymentsService.Domain.Entities;
 using PaymentsService.Infrastructure.DbData;
 using SharedContacts.Events;
+using SharedContacts.Http.Contracts;
 
 namespace PaymentsService.Infrastructure.Kafka
 {
@@ -24,7 +25,6 @@ namespace PaymentsService.Infrastructure.Kafka
         private readonly ConsumerConfig   _cfg;
         private readonly ILogger<InboxProcessor> _logger;
 
-        // (п.3-4: тема пока хардкодом)
         private const string Topic = "order-created";
 
         public InboxProcessor(
@@ -92,18 +92,28 @@ namespace PaymentsService.Infrastructure.Kafka
                     });
 
                     // списываем баланс
-                    var user = await db.Users.FindAsync(evt.UserId)
-                               ?? throw new KeyNotFoundException($"User {evt.UserId} not found");
-                    user.Withdraw(evt.Amount);
-                    db.Users.Update(user);
-
+                    bool isOk = false;
+                    try
+                    {
+                        var user = await db.Users.FindAsync(evt.UserId)
+                                   ?? throw new KeyNotFoundException($"User {evt.UserId} not found");
+                        user.Withdraw(evt.Amount);
+                        db.Users.Update(user);
+                        isOk = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        
+                    }
+                    
                     // готовим событие о завершении оплаты
                     var doneEvt = new PaymentCompletedEvent
                     {
                         EventId    = Guid.NewGuid(),
                         OrderId    = evt.OrderId,
                         Amount     = evt.Amount,
-                        OccurredOn = DateTime.UtcNow
+                        OccurredOn = DateTime.UtcNow,
+                        Status = isOk ? StatusType.Finished : StatusType.Canceled
                     };
                     db.Outbox.Add(new OutboxMessage
                     {
@@ -120,7 +130,7 @@ namespace PaymentsService.Infrastructure.Kafka
                     consumer.Commit(cr);
                 }
             }
-            catch (OperationCanceledException) { /* shutdown */ }
+            catch (OperationCanceledException) {}
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Fatal error in InboxProcessor, stopping host");

@@ -23,7 +23,10 @@ public class OrderController : ControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(OrderCreationResponce), StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult> CreateOrder([FromQuery] Guid userId, decimal amount, string description = "")
+    public async Task<ActionResult> CreateOrder(
+        [FromQuery] Guid userId,
+        [FromQuery] decimal amount,
+        [FromQuery] string description = "")
     {
         if (amount < 0)
         {
@@ -78,7 +81,7 @@ public class OrderController : ControllerBase
         try
         {
             var resp = await _orderService.GetOrderAsync(id);
-            return Ok(resp.Status);
+            return Ok(resp.Status.ToString());
         }
         catch
         {

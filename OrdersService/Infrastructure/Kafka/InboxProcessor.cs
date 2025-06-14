@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using OrdersService.Domain.Entities;
 using OrdersService.Infrastructure.Interfaces;
+using StatusType = SharedContacts.Http.Contracts.StatusType;
 
 namespace OrdersService.Infrastructure.Kafka;
 
@@ -71,7 +72,14 @@ public class InboxProcessor : BackgroundService
 
                 var order = await repo.GetOrderAsync(evt.OrderId)
                           ?? throw new KeyNotFoundException($"Order {evt.OrderId} not found");
-                order.MarkFinished();
+                if (evt.Status == StatusType.Finished)
+                {
+                    order.MarkFinished();
+                }
+                else
+                {
+                    order.MarkCanceled();
+                }
                 await repo.UpdateOrderAsync(order);
 
                 await repo.SaveChangesAsync();

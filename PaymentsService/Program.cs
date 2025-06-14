@@ -37,7 +37,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<PaymentDbContext>();
-    // Ждём подгрузки бд и применяем миграции
+    
     var retries = 5;
     while (true)
     {

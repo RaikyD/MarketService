@@ -17,14 +17,11 @@ public class OrderService : IOrderService
 
     public async Task<Guid> AddOrderAsync(Guid userId, decimal amount, string description = "")
     {
-        // 1. Начинаем транзакцию
         await using var tx = await _repo.BeginTransactionAsync();
-
-        // 2. Создаём агрегат
+        
         var order = new Order(userId, amount, description);
         await _repo.AddOrderAsync(order);
-
-        // 3. Кладём событие в Outbox
+        
         var evt = new OrderCreatedEvent
         {
             EventId    = Guid.NewGuid(),
@@ -42,8 +39,7 @@ public class OrderService : IOrderService
             Dispatched = false
         };
         await _repo.AddOutboxMessageAsync(outbox);
-
-        // 4. Сохраняем и коммитим
+        
         await _repo.SaveChangesAsync();
         await tx.CommitAsync();
 

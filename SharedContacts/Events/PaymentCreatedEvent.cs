@@ -1,5 +1,6 @@
-namespace SharedContacts.Events;
+using SharedContacts.Http.Contracts;
 
+namespace SharedContacts.Events;
 
 public class PaymentCompletedEvent
 {
@@ -8,5 +9,6 @@ public class PaymentCompletedEvent
     public Guid   UserId    { get; set; }
     public decimal Amount   { get; set; }
     public DateTime OccurredOn { get; set; }
+    public StatusType Status { get; set; }
 }
 

@@ -16,7 +16,6 @@ public class KafkaProducer : IDisposable
 
     public async Task ProduceAsync(string topic, object @event)
     {
-        // если event уже строка — отправляем её как есть
         string payload = @event switch
         {
             string s => s,
