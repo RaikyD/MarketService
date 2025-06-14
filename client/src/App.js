@@ -9,7 +9,6 @@ const STATUS_MAP = { 0:'New',1:'Finished',2:'Canceled' }
 const isGuid = s => /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(s)
 
 export default function App() {
-  // — Платёжный сервис —
   const [initAmt,  setInitAmt]  = useState('')
   const [users,    setUsers]    = useState([])
   const [selUser,  setSelUser]  = useState('')
@@ -97,19 +96,28 @@ export default function App() {
     } catch { toast.error('Ошибка') }
   }
 
-  // ===== Сервис заказов =====
-
   const createOrder = async () => {
-    if (!isGuid(oUser)||+oAmt<=0){ toast.error('Проверьте'); return }
+    if (!isGuid(oUser) || +oAmt <= 0) { toast.error('Проверьте'); return }
     try {
       const { data } = await axios.post(
-        `${API}/Order?userId=${oUser}`+
-        `&amount=${oAmt}`+
-        `&description=${encodeURIComponent(oDesc)}`
+        `${API}/Order?userId=${oUser}&amount=${oAmt}&description=${encodeURIComponent(oDesc)}`
       )
-      setOrders(o=>[...o,{...data,status:0}])
-      hub?.invoke('JoinOrder', data.id) // подписаться на новый
+      setOrders(o => [...o, { ...data, status: 0 }])
+      hub?.invoke('JoinOrder', data.id)
       toast.success(`Заказ: ${data.id}`)
+  
+      // Получаем статус сразу (без setTimeout)
+      const { data: statusData } = await axios.get(`${API}/GetOrderStatus?id=${data.id}`)
+      const statusText = STATUS_MAP[statusData] || statusData
+      setOrderState(statusText)
+      toast.success(`Статус: ${statusText}`)
+  
+      setTimeout(async () => {
+        const { data: newStatus } = await axios.get(`${API}/GetOrderStatus?id=${data.id}`)
+        const newStatusText = STATUS_MAP[newStatus] || newStatus
+        setOrderState(newStatusText)
+        toast.info(`Статус: ${newStatusText} заказа ${data.id}`)
+      }, 7000)
     } catch { toast.error('Ошибка') }
   }
 
@@ -180,7 +188,7 @@ export default function App() {
         />
         <button onClick={createOrder}>Создать заказ</button>
 
-        {/* снова ручное получение статуса */}
+        {}
         <input
           style={{width:200}}
           placeholder="Order ID для статуса"
