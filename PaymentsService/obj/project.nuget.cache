@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9366SKSBxvc=",
+  "dgSpecHash": "72hgdFyscPA=",
   "success": true,
-  "projectFilePath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/PaymentsService/PaymentsService.csproj",
+  "projectFilePath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/PaymentsService/PaymentsService.csproj",
   "expectedPackageFiles": [
     "/Users/gurshhh/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",
     "/Users/gurshhh/.nuget/packages/confluent.kafka/2.10.1/confluent.kafka.2.10.1.nupkg.sha512",

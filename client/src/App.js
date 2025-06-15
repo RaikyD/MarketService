@@ -25,6 +25,7 @@ export default function App() {
 
   // сохраняем/загружаем users в localStorage
   useEffect(() => {
+    localStorage.clear();
     const stored = localStorage.getItem('users')
     if (stored) setUsers(JSON.parse(stored))
   }, [])
@@ -96,30 +97,66 @@ export default function App() {
     } catch { toast.error('Ошибка') }
   }
 
+  // const createOrder = async () => {
+  //   if (!isGuid(oUser) || +oAmt <= 0) { toast.error('Проверьте'); return }
+  //   try {
+  //     const { data } = await axios.post(
+  //       `${API}/Order?userId=${oUser}&amount=${oAmt}&description=${encodeURIComponent(oDesc)}`
+  //     )
+  //     setOrders(o => [...o, { ...data, status: 0 }])
+  //     hub?.invoke('JoinOrder', data.id)
+  //     toast.success(`Заказ: ${data.id}`)
+  
+  //     // Получаем статус сразу (без setTimeout)
+  //     const { data: statusData } = await axios.get(`${API}/GetOrderStatus?id=${data.id}`)
+  //     const statusText = STATUS_MAP[statusData] || statusData
+  //     setOrderState(statusText)
+  //     toast.success(`Статус: ${statusText}`)
+  
+  //     setTimeout(async () => {
+  //       const { data: newStatus } = await axios.get(`${API}/GetOrderStatus?id=${data.id}`)
+  //       const newStatusText = STATUS_MAP[newStatus] || newStatus
+  //       setOrderState(newStatusText)
+  //       toast.info(`Статус: ${newStatusText} заказа ${data.id}`)
+  //     }, 7000)
+  //   } catch { toast.error('Ошибка') }
+  // }
   const createOrder = async () => {
-    if (!isGuid(oUser) || +oAmt <= 0) { toast.error('Проверьте'); return }
+    if (!isGuid(oUser) || +oAmt <= 0) {
+      toast.error('Проверьте ввод');
+      return;
+    }
+  
     try {
-      const { data } = await axios.post(
+      const { data: order } = await axios.post(
         `${API}/Order?userId=${oUser}&amount=${oAmt}&description=${encodeURIComponent(oDesc)}`
-      )
-      setOrders(o => [...o, { ...data, status: 0 }])
-      hub?.invoke('JoinOrder', data.id)
-      toast.success(`Заказ: ${data.id}`)
+      );
+      toast.success(`Заказ создан: ${order.id}`);
+      setOrders(o => [...o, { ...order, status: 0 }]);
+      const pollInterval = 3000;
+      const timer = setInterval(async () => {
+        try {
+          const { data: statusCode } = await axios.get(
+            `${API}/GetOrderStatus?id=${order.id}`
+          );
+          console.log(statusCode);
+          if (statusCode !== "New") {
+            const text = STATUS_MAP[statusCode] || statusCode;
+            toast.success(`Заказ ${order.id} перешёл в статус: ${text}`);
+            setOrderState(text);
+            clearInterval(timer);
+          }
+        } catch {
+          clearInterval(timer);
+          toast.error('Не удалось опросить статус заказа');
+        }
+      }, pollInterval);
   
-      // Получаем статус сразу (без setTimeout)
-      const { data: statusData } = await axios.get(`${API}/GetOrderStatus?id=${data.id}`)
-      const statusText = STATUS_MAP[statusData] || statusData
-      setOrderState(statusText)
-      toast.success(`Статус: ${statusText}`)
+    } catch {
+      toast.error('Ошибка при создании заказа');
+    }
+  };
   
-      setTimeout(async () => {
-        const { data: newStatus } = await axios.get(`${API}/GetOrderStatus?id=${data.id}`)
-        const newStatusText = STATUS_MAP[newStatus] || newStatus
-        setOrderState(newStatusText)
-        toast.info(`Статус: ${newStatusText} заказа ${data.id}`)
-      }, 7000)
-    } catch { toast.error('Ошибка') }
-  }
 
   const fetchStatus = async () => {
     if (!isGuid(statusId)){ toast.error('ID'); return }

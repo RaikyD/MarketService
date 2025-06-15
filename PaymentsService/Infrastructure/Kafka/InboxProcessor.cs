@@ -14,11 +14,6 @@ using SharedContacts.Http.Contracts;
 
 namespace PaymentsService.Infrastructure.Kafka
 {
-    /// <summary>
-    /// Фоновый сервис, который слушает топик "order-created",
-    /// кладёт в InboxMessage для идемпотентности, списывает баланс в Users
-    /// и пушит в OutboxMessage событие payment-completed.
-    /// </summary>
     public class InboxProcessor : BackgroundService
     {
         private readonly IServiceProvider _sp;

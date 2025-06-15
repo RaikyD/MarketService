@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/OrderServiceTests/OrderServiceTests.csproj": {}
+    "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/OrderServiceTests/OrderServiceTests.csproj": {}
   },
   "projects": {
-    "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/OrderServiceTests/OrderServiceTests.csproj": {
+    "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/OrderServiceTests/OrderServiceTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/OrderServiceTests/OrderServiceTests.csproj",
+        "projectUniqueName": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/OrderServiceTests/OrderServiceTests.csproj",
         "projectName": "OrderServiceTests",
-        "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/OrderServiceTests/OrderServiceTests.csproj",
+        "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/OrderServiceTests/OrderServiceTests.csproj",
         "packagesPath": "/Users/gurshhh/.nuget/packages/",
-        "outputPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/OrderServiceTests/obj/",
+        "outputPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/OrderServiceTests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/gurshhh/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/OrdersService/OrdersService.csproj": {
-                "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/OrdersService/OrdersService.csproj"
+              "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/OrdersService/OrdersService.csproj": {
+                "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/OrdersService/OrdersService.csproj"
               }
             }
           }
@@ -88,14 +88,14 @@
         }
       }
     },
-    "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/OrdersService/OrdersService.csproj": {
+    "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/OrdersService/OrdersService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/OrdersService/OrdersService.csproj",
+        "projectUniqueName": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/OrdersService/OrdersService.csproj",
         "projectName": "OrdersService",
-        "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/OrdersService/OrdersService.csproj",
+        "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/OrdersService/OrdersService.csproj",
         "packagesPath": "/Users/gurshhh/.nuget/packages/",
-        "outputPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/OrdersService/obj/",
+        "outputPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/OrdersService/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/gurshhh/.nuget/NuGet/NuGet.Config"
@@ -110,8 +110,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/SharedContacts.csproj": {
-                "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/SharedContacts.csproj"
+              "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/SharedContacts.csproj": {
+                "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/SharedContacts.csproj"
               }
             }
           }
@@ -189,14 +189,14 @@
         }
       }
     },
-    "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/SharedContacts.csproj": {
+    "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/SharedContacts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/SharedContacts.csproj",
+        "projectUniqueName": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/SharedContacts.csproj",
         "projectName": "SharedContacts",
-        "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/SharedContacts.csproj",
+        "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/SharedContacts.csproj",
         "packagesPath": "/Users/gurshhh/.nuget/packages/",
-        "outputPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3/SharedContacts/obj/",
+        "outputPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/gurshhh/.nuget/NuGet/NuGet.Config"

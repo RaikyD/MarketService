@@ -11,7 +11,7 @@ using PaymentsService.Infrastructure.DbData;
 namespace PaymentsService.Infrastructure.Kafka
 {
     /// <summary>
-    /// Фоновый сервис: раз в секунду берёт из таблицы OutboxMessages
+    /// Фоновый сервис, раз в секунду берёт из таблицы OutboxMessages
     /// несозданные события и шлёт их в Kafka.
     /// </summary>
     public class OutboxDispatcher : BackgroundService
