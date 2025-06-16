@@ -34,13 +34,6 @@ public class OutboxDispatcher : BackgroundService
 
             foreach (var msg in pending)
             {
-                //для дебага 
-                Console.WriteLine($"TEST - {msg.Topic}, {msg.Payload}");
-                Console.WriteLine($"TEST - {msg.Topic}, {msg.Payload}");
-                Console.WriteLine($"TEST - {msg.Topic}, {msg.Payload}");
-                Console.WriteLine($"TEST - {msg.Topic}, {msg.Payload}");
-                Console.WriteLine($"TEST - {msg.Topic}, {msg.Payload}");
-                Console.WriteLine($"TEST - {msg.Topic}, {msg.Payload}");
                 await _producer.ProduceAsync(msg.Topic, msg.Payload);
                 msg.Dispatched = true;
             }

@@ -1,6 +1,6 @@
 namespace SharedContacts.Events;
 
-public class OrderCreatedEvent
+public sealed class OrderCreatedEvent
 {
     public Guid EventId   { get; set; }
     public Guid OrderId   { get; set; }

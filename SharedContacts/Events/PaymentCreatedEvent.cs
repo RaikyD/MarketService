@@ -2,7 +2,7 @@ using SharedContacts.Http.Contracts;
 
 namespace SharedContacts.Events;
 
-public class PaymentCompletedEvent
+public sealed class PaymentCompletedEvent
 {
     public Guid   EventId   { get; set; }
     public Guid   OrderId   { get; set; }

@@ -2,7 +2,7 @@ using System.Data.Common;
 
 namespace PaymentsService.Domain.Entities;
 
-public class UserAccount
+public sealed class UserAccount
 {
     public Guid UsedId { get; }
     public decimal Balance { get; private set; }

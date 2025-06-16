@@ -1,8 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	
+	
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c0cda1df_002Da03d_002D46e6_002Daf6e_002D51c983d53ec4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from PaymentServiceTest.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;Or&gt;
-    &lt;Project Location="/Users/gurshhh/Desktop/University/2 year/KPO/KR3/PaymentServiceTests" Presentation="&amp;lt;PaymentServiceTests&amp;gt;" /&gt;
-    &lt;Project Location="/Users/gurshhh/Desktop/University/2 year/KPO/KR3/OrderServiceTests" Presentation="&amp;lt;OrderServiceTests&amp;gt;" /&gt;
-  &lt;/Or&gt;
+  &lt;Solution /&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

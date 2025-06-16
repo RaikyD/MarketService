@@ -2,7 +2,7 @@ namespace PaymentsService.Domain.Entities;
 
 using System;
 
-public class OutboxMessage
+public sealed class OutboxMessage
 {
     public Guid Id { get; set; }               
     public string Topic { get; set; } = null!; 

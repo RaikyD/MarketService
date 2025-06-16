@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Q75+nfUL1yM=",
+  "dgSpecHash": "0JCgyghu/9c=",
   "success": true,
-  "projectFilePath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/SharedContacts.csproj",
+  "projectFilePath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/SharedContacts/SharedContacts.csproj",
   "expectedPackageFiles": [
     "/Users/gurshhh/.nuget/packages/microsoft.netcore.platforms/1.1.1/microsoft.netcore.platforms.1.1.1.nupkg.sha512",
     "/Users/gurshhh/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",

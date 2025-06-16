@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/PaymentServiceTests/PaymentServiceTests.csproj": {}
+    "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/PaymentServiceTests/PaymentServiceTests.csproj": {}
   },
   "projects": {
-    "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/PaymentServiceTests/PaymentServiceTests.csproj": {
+    "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/PaymentServiceTests/PaymentServiceTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/PaymentServiceTests/PaymentServiceTests.csproj",
+        "projectUniqueName": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/PaymentServiceTests/PaymentServiceTests.csproj",
         "projectName": "PaymentServiceTests",
-        "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/PaymentServiceTests/PaymentServiceTests.csproj",
+        "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/PaymentServiceTests/PaymentServiceTests.csproj",
         "packagesPath": "/Users/gurshhh/.nuget/packages/",
-        "outputPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/PaymentServiceTests/obj/",
+        "outputPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/PaymentServiceTests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/gurshhh/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/PaymentsService/PaymentsService.csproj": {
-                "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/PaymentsService/PaymentsService.csproj"
+              "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/PaymentsService/PaymentsService.csproj": {
+                "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/PaymentsService/PaymentsService.csproj"
               }
             }
           }
@@ -88,14 +88,14 @@
         }
       }
     },
-    "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/PaymentsService/PaymentsService.csproj": {
+    "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/PaymentsService/PaymentsService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/PaymentsService/PaymentsService.csproj",
+        "projectUniqueName": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/PaymentsService/PaymentsService.csproj",
         "projectName": "PaymentsService",
-        "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/PaymentsService/PaymentsService.csproj",
+        "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/PaymentsService/PaymentsService.csproj",
         "packagesPath": "/Users/gurshhh/.nuget/packages/",
-        "outputPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/PaymentsService/obj/",
+        "outputPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/PaymentsService/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/gurshhh/.nuget/NuGet/NuGet.Config"
@@ -110,8 +110,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/SharedContacts.csproj": {
-                "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/SharedContacts.csproj"
+              "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/SharedContacts/SharedContacts.csproj": {
+                "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/SharedContacts/SharedContacts.csproj"
               }
             }
           }
@@ -189,14 +189,14 @@
         }
       }
     },
-    "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/SharedContacts.csproj": {
+    "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/SharedContacts/SharedContacts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/SharedContacts.csproj",
+        "projectUniqueName": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/SharedContacts/SharedContacts.csproj",
         "projectName": "SharedContacts",
-        "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/SharedContacts.csproj",
+        "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/SharedContacts/SharedContacts.csproj",
         "packagesPath": "/Users/gurshhh/.nuget/packages/",
-        "outputPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/obj/",
+        "outputPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/SharedContacts/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/gurshhh/.nuget/NuGet/NuGet.Config"

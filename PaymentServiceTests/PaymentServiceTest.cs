@@ -11,7 +11,6 @@ public class PaymentServiceTests
     {
         var options = new DbContextOptionsBuilder<PaymentDbContext>()
             .UseInMemoryDatabase(databaseName: dbName)
-            // отключаем ошибку по транзакциям для InMemory
             .ConfigureWarnings(w => 
                 w.Ignore(InMemoryEventId.TransactionIgnoredWarning))
             .Options;
@@ -58,7 +57,6 @@ public class PaymentServiceTests
         // Arrange
         var db     = CreateContext(nameof(GetUserBalance_Existing_ReturnsBalance));
         var userId = Guid.NewGuid();
-        // подложили запись в БД
         db.Users.Add(new UserAccount(userId, 777m));
         await db.SaveChangesAsync();
         var svc = new PaymentService(db, null!);

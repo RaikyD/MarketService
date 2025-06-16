@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/SharedContacts.csproj": {}
+    "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/SharedContacts/SharedContacts.csproj": {}
   },
   "projects": {
-    "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/SharedContacts.csproj": {
+    "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/SharedContacts/SharedContacts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/SharedContacts.csproj",
+        "projectUniqueName": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/SharedContacts/SharedContacts.csproj",
         "projectName": "SharedContacts",
-        "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/SharedContacts.csproj",
+        "projectPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/SharedContacts/SharedContacts.csproj",
         "packagesPath": "/Users/gurshhh/.nuget/packages/",
-        "outputPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR_Last/MarketService/SharedContacts/obj/",
+        "outputPath": "/Users/gurshhh/Desktop/University/2 year/KPO/KR3_Last/MarketService/SharedContacts/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/gurshhh/.nuget/NuGet/NuGet.Config"

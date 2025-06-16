@@ -8,11 +8,6 @@ using OrdersService.Infrastructure.Interfaces;
 using OrdersService.Infrastructure.Kafka;
 using OrdersService.Infrastructure.Repositories;
 using OrdersService.Presentation.Hub;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using OrdersService.Presentation.Hub;
 
 var builder = WebApplication.CreateBuilder(args);
 
